@@ -35,7 +35,7 @@ function show_projects($config_directory_path)
 
     foreach ($optionElements as $optionElement) {
         if ($optionElement->value) {
-            $path = str_replace('$USER_HOME$', '~', $optionElement->value);
+            $path = str_replace('$USER_HOME$', $_SERVER['HOME'], $optionElement->value);
             echo $path . PHP_EOL;
         }
     }
@@ -43,5 +43,6 @@ function show_projects($config_directory_path)
 
 function start_project($project)
 {
+    echo $project;
     exec('bash -c "exec nohup setsid pstorm \"' . escapeshellcmd($project) . '\" &> /dev/null &"');
 }
