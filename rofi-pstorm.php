@@ -9,7 +9,7 @@ const RECENT_PROJECTS = '/options/recentProjectDirectories.xml';
 $pstorm_path = '/usr/local/bin/pstorm';
 $config_directory_path = get_config_directory($pstorm_path);
 
-if ($argc == 1) {
+if ($argc === 1) {
     show_projects($config_directory_path);
 } else {
     start_project($argv[1]);
